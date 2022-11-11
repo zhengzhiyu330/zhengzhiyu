@@ -66,6 +66,18 @@ def get_words():
     return get_words()
   return words.json()['data']['text']
 
+def get_words1():
+  words = requests.get("https://api.shadiao.pro/pyq")
+  if words.status_code != 200:
+    return get_words1()
+  return words.json()['data']['text']
+
+def get_words2():
+  words = requests.get("https://api.shadiao.pro/du")
+  if words.status_code != 200:
+    return get_words2()
+  return words.json()['data']['text']
+
 def format_temperature(temperature):
   return math.floor(temperature)
 
@@ -119,6 +131,10 @@ data = {
   },
   "words": {
     "value": get_words(),
+    "color": get_random_color()
+  },
+  "words1": {
+    "value": get_words2(),
     "color": get_random_color()
   },
 }
